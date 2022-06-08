@@ -67,7 +67,7 @@ public class Background implements InlineStyleWorker {
         if (StringUtils.isNotBlank(gradient) || StringUtils.isNotBlank(image)) {
             String imageDeclaration = null;
             if (StringUtils.isNotBlank(image)) {
-                imageDeclaration = String.format(IMAGE_DECLARATION, Text.escape(image));
+                imageDeclaration = String.format(IMAGE_DECLARATION, Text.escape(image,'%',true));
             }
             return String.format(IMAGE_FORMAT, Arrays.asList(gradient, imageDeclaration).stream()
                 .filter(StringUtils::isNotBlank)

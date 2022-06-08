@@ -43,8 +43,8 @@ class BackgroundTest extends AbstractInlineStyleWorkerTest {
             "fileReferenceDesktop", "/content/dam/desktop.jpg",
             "focusX", 30L,
             "focusY", 30L);
-        assertEquals("background-image: url(%2fcontent%2fdam%2fmobile.jpg); background-size: cover; background-position: 30% 30% ", getDeclaration("mobile"));
-        assertEquals("background-image: url(%2fcontent%2fdam%2fdesktop.jpg); background-size: cover", getDeclaration("desktop"));
+        assertEquals("background-image: url(/content/dam/mobile.jpg); background-size: cover; background-position: 30% 30% ", getDeclaration("mobile"));
+        assertEquals("background-image: url(/content/dam/desktop.jpg); background-size: cover", getDeclaration("desktop"));
     }
 
     @Test
@@ -73,7 +73,7 @@ class BackgroundTest extends AbstractInlineStyleWorkerTest {
             "focusY", 30L,
             "backgroundColor", "white",
             "gradient", "red");
-        assertEquals("background-color: #FEFEFE; background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 36.8%,rgba(255, 0, 0, 0.78) 95.0%),url(%2fcontent%2fdam%2fmobile.jpg); background-size: cover; background-position: 30% 30% ",
+        assertEquals("background-color: #FEFEFE; background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 36.8%,rgba(255, 0, 0, 0.78) 95.0%),url(/content/dam/mobile.jpg); background-size: cover; background-position: 30% 30% ",
             getDeclaration("mobile"));
     }
 

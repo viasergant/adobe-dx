@@ -114,7 +114,7 @@ public class ContextAwareDatasource {
 
                     // Store the initial value in case it's needed.
                     decorator.put("initialValue", props.get(VALUE_KEY));
-                    decorator.put(VALUE_KEY, name);
+                    decorator.put(VALUE_KEY, props.get(VALUE_KEY));
 
                     // Ensure the is text property exists
                     String text = props.get(TEXT_KEY, String.class);

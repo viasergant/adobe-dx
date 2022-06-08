@@ -84,9 +84,20 @@ public class FlexGeneralStyle implements InlineStyleWorker {
         Long gap = RequestUtil.getFromRespProps(request, breakpoint, PN_GAP);
         gap = gap != null ? gap / 2 : null;
         String gapContainer = computeGapContainer(gap);
+        String itemAlignment = RequestUtil.getFromRespProps(request, breakpoint, "itemAlignment");
+        String contentAlignment = RequestUtil.getFromRespProps(request, breakpoint, "contentAlignment");
+        String itemContentAlignment = RequestUtil.getFromRespProps(request, breakpoint, "itemContentAlignment");
+        String justification = RequestUtil.getFromRespProps(request, breakpoint, "justification");
         if (StringUtils.isNotBlank(minHeight) || StringUtils.isNotBlank(gapContainer)) {
             rules = new ArrayList<>();
-            rules.add(String.format(RULE_CONTAINER, id, Arrays.asList(minHeight, gapContainer).stream()
+            rules.add(String.format(RULE_CONTAINER, id, Arrays.asList(
+                    minHeight,
+                            gapContainer,
+                            StringUtils.isEmpty(itemAlignment)?"":"align-self: " + itemAlignment,
+                            StringUtils.isEmpty(contentAlignment)?"":"align-content: " + contentAlignment,
+                            StringUtils.isEmpty(itemContentAlignment)?"":"align-items: " + itemContentAlignment,
+                            StringUtils.isEmpty(justification)?"":"justify-content: " + justification
+                            ).stream()
                 .filter(StringUtils::isNotBlank)
                 .collect(Collectors.joining(DEL_SPACE))));
         }

@@ -362,6 +362,12 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/autocomplete/list"/>
                                             </gradient>
+                                            <image
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldLabel="Background image"
+                                                    name="./fileReference"
+                                                    rootPath="/content/dam"/>
                                             <video
                                                 jcr:primaryType="nt:unstructured"
                                                 path="dx/content/components/video/cq:dialog/content/items/column/items"
